@@ -68,6 +68,14 @@ with tab1:
                       title="Coverage vs Incidence (MCV1)",
                       labels={"COVERAGE":"Coverage (%)","incidence_per_100k":"Incidence per 100,000"})
     st.plotly_chart(fig3, use_container_width=True)
+    # Herd Immunity Threshold Visualization
+subset = avg[avg['ANTIGEN']=="MCV1"]
+fig4 = px.scatter(subset, x="COVERAGE", y="incidence_per_100k",
+                  title="Herd Immunity Threshold (~95%)",
+                  labels={"COVERAGE":"Coverage (%)", "incidence_per_100k":"Incidence per 100,000"})
+fig4.add_vline(x=95, line_dash="dot", annotation_text="95% Threshold", annotation_position="top left")
+st.plotly_chart(fig4, use_container_width=True)
+
 
 # --------------------------------------------------
 # TAB 2: COUNTRY TRENDS
@@ -138,3 +146,4 @@ highlighting herd immunity thresholds and identifying high-risk countries.
 
 ---
 """)
+
