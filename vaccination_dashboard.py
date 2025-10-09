@@ -106,6 +106,16 @@ with tab2:
                 yaxis2=dict(title="Incidence per 100,000", overlaying="y", side="right", color="red")
             )
             st.plotly_chart(fig4, use_container_width=True)
+            # Top 10 countries with highest incidence in selected year
+subset_year = merged[(merged['YEAR']==year_selected) & (merged['ANTIGEN']==antigen_selected)]
+top10 = subset_year.groupby('NAME')['incidence_per_100k'].mean().nlargest(10).reset_index()
+
+fig5 = px.bar(top10, x='NAME', y='incidence_per_100k',
+              title=f"Top 10 Countries by Measles Incidence – {year_selected}",
+              labels={"NAME":"Country", "incidence_per_100k":"Incidence per 100,000"},
+              color='incidence_per_100k', color_continuous_scale='Reds')
+st.plotly_chart(fig5, use_container_width=True)
+
 
 # --------------------------------------------------
 # TAB 3: MAP VISUALIZATION
@@ -146,4 +156,5 @@ highlighting herd immunity thresholds and identifying high-risk countries.
 
 ---
 """)
+
 
