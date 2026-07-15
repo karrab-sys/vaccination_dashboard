@@ -144,15 +144,23 @@ with tab3:
 st.markdown("---")
 st.markdown("""
 ### 📖 About This Project
-**Course:** Graduate Capstone – Information Visualization  
-**Student:** Bhavana Karra (G02533974)  
+
+This project provides an interactive analysis of global measles vaccination coverage and disease incidence using public health and population datasets.
+
 **Data Sources:**  
 - [WHO Immunization Data Portal](https://immunizationdata.who.int/)  
 - [World Bank Population Indicators](https://data.worldbank.org/indicator/SP.POP.TOTL)
 
-**Objective:**  
-To explore and visualize how global vaccination coverage relates to measles outbreaks, 
-highlighting herd immunity thresholds and identifying high-risk countries.
+**Project Objective:**  
+To examine how MCV1 and MCV2 vaccination coverage relates to measles incidence, highlight herd immunity thresholds, identify high-risk countries, and support global and country-level trend analysis.
+
+**Technologies Used:**  
+- Python  
+- Streamlit  
+- Pandas  
+- Plotly  
+- Data cleaning and transformation  
+- Interactive data visualization
 
 ---
 """)
